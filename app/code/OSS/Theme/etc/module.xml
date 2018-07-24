@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * OSS Theme module config
+ *
+ * @category  OSS
+ * @package   OSS\Theme
+ * @author    Andrii Dubina
+ * @copyright 2018 OSS
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="OSS_Theme" setup_version="1.0.0"/>
+</config>

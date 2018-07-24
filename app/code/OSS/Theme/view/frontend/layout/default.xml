@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * OSS Theme default layout
+ *
+ * @category  OSS
+ * @package   OSS/Theme
+ * @author    Andrii Dubina
+ * @copyright 2018 OSS
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Magento\Framework\View\Element\Template" name="start.message" as="start_message"
+                   template="OSS_Theme::message.phtml" before="-" />
+        </referenceContainer>
+    </body>
+</page>
