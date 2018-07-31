@@ -67,3 +67,5 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 .DS_Store
+
+/magento2-sample-data/pub/media/catalog/product/cache/*
