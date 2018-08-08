@@ -16,5 +16,18 @@
             <block class="Magento\Framework\View\Element\Template" name="start.message" as="start_message"
                    template="OSS_Theme::message.phtml" before="-" />
         </referenceContainer>
+
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Template" name="oss.test" as="oss_test"
+                   template="OSS_Theme::footer/test.phtml" before="-">
+
+                <block class="Magento\Framework\View\Element\Template" name="start.message" as="start_message"
+                       template="OSS_Theme::message.phtml" before="-" />
+            </block>
+        </referenceContainer>
+
+        <!--<referenceBlock name="start.message">-->
+            <!---->
+        <!--</referenceBlock>-->
     </body>
 </page>
