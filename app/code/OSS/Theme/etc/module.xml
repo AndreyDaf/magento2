@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!--
 /**
- * OSS Theme module config
+ * OSS_Theme Theme module config
  *
- * @category  OSS
- * @package   OSS\Theme
+ * @category  OSS_Theme
+ * @package   OSS_Theme\Theme
  * @author    Andrii Dubina
- * @copyright 2018 OSS
+ * @copyright 2018 OSS_Theme
  */
 -->
 

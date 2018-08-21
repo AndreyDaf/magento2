@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <referenceContainer name="header.panel.wrapper" display="false"></referenceContainer>
+                <referenceContainer name="header-wrapper" label="Page Header" as="header-wrapper" htmlTag="div" htmlClass="header content">
+                    <referenceBlock name="logo">
+                        <arguments>
+                            <argument name="logo_file" xsi:type="string">images/logo.jpg</argument>
+                            <argument name="logo_alt" xsi:type="string">Logo</argument>
+                            <argument name="logo_img_width" xsi:type="number">100</argument>
+                            <argument name="logo_img_height" xsi:type="number">100</argument>
+                        </arguments>
+                    </referenceBlock>
+                    <container name="langw-block" as="langw-block" htmlTag="div" htmlClass="langw_block" after="logo">
+
+                    </container>
+                </referenceContainer>
+        </referenceContainer>
+    </body>
+</page>

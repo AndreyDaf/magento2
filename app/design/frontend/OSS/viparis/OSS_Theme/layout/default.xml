@@ -13,8 +13,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="after.body.start">
-            <block class="Magento\Framework\View\Element\Template" name="start.message" as="start_message"
-                   template="OSS_Theme::message.phtml" before="-" />
+            <referenceBlock name="start.message" display="false"/>
         </referenceContainer>
     </body>
 </page>
