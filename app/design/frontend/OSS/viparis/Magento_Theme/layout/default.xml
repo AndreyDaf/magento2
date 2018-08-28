@@ -8,20 +8,41 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="header.container">
-            <referenceContainer name="header.panel.wrapper" display="false"></referenceContainer>
-                <referenceContainer name="header-wrapper" label="Page Header" as="header-wrapper" htmlTag="div" htmlClass="header content">
-                    <referenceBlock name="logo">
-                        <arguments>
-                            <argument name="logo_file" xsi:type="string">images/logo.jpg</argument>
-                            <argument name="logo_alt" xsi:type="string">Logo</argument>
-                            <argument name="logo_img_width" xsi:type="number">100</argument>
-                            <argument name="logo_img_height" xsi:type="number">100</argument>
-                        </arguments>
-                    </referenceBlock>
-                    <container name="langw-block" as="langw-block" htmlTag="div" htmlClass="langw_block" after="logo">
-
-                    </container>
-                </referenceContainer>
+            <referenceContainer name="header.panel.wrapper" remove="true"/>
+            <referenceContainer name="header-wrapper" label="Page Header" as="header-wrapper" htmlTag="div" htmlClass="header content">
+                <referenceBlock name="logo">
+                    <arguments>
+                        <argument name="logo_file" xsi:type="string">images/logo.jpg</argument>
+                        <argument name="logo_alt" xsi:type="string">Logo</argument>
+                        <argument name="logo_img_width" xsi:type="number">100</argument>
+                        <argument name="logo_img_height" xsi:type="number">100</argument>
+                    </arguments>
+                </referenceBlock>
+                <block class="Magento\Framework\View\Element\Template" name="langw.block" template="OSS_Theme::langwich.phtml">
+                </block>
+            </referenceContainer>
         </referenceContainer>
+        <referenceContainer name="footer-container">
+            <referenceContainer name="footer">
+                <container name="top.footer" htmlTag="div" htmlClass="top_footer" before="-">
+                    <block name="link.for.ask" template="Magento_Theme::linkForHelp.phtml"></block>
+                    <container name="wrapper.for.links" htmlTag="div" htmlClass="top_footer_item"></container>
+                </container>
+                <container name="mid.footer" htmlTag="div" htmlClass="mid_footer" after="top.footer">
+                    <block name="mid.content" template="Magento_Theme::midFooter.phtml"></block>
+                    <container name="mid.main.col" htmlTag="div" htmlClass="main_col">
+                        <block name="mid.content.right" template="Magento_Theme::midFooterRight.phtml"></block>
+                    </container>
+                </container>
+                <!--<referenceBlock name="copyright">-->
+                    <!---->
+                <!--</referenceBlock>-->
+            </referenceContainer>
+        </referenceContainer>
+
+        <move element="top.search" destination="navigation.sections" after="store.menu"></move>
+        <move element="footer_links" destination="wrapper.for.links"></move>
+        <move element="form.subscribe" destination="mid.main.col" before="-"></move>
+        <move element="top.links" destination="header-wrapper" before="minicart"></move>
     </body>
 </page>
