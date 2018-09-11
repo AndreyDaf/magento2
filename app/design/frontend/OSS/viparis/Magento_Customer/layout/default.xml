@@ -8,14 +8,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="top.links">
-            <referenceBlock name="authorization-link" remove="true"/>
-            <referenceBlock class="Magento\Customer\Block\Account\Link" name="my-account-link">
+            <referenceBlock name="my-account-link">
                 <arguments>
-                    <argument name="label" xsi:type="string" translate="true">MON COMPTE</argument>
+                    <argument name="label" xsi:type="string" translate="true">mon comte</argument>
                 </arguments>
             </referenceBlock>
-            <referenceBlock name="catalog.compare.link" remove="true">
-            </referenceBlock>
+            <referenceBlock name="authorization-link" remove="true"/>
         </referenceBlock>
     </body>
 </page>

@@ -10,10 +10,68 @@
  */
 -->
 
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="after.body.start" remove="true">
-            <container name="tt" htmlTag="div" htmlClass="tttt" before="-"/>
+        <referenceContainer name="header.container">
+            <referenceContainer name="header.panel.wrapper" remove="true"/>
+
+            <referenceContainer name="header-wrapper">
+                <container name="bootstrap.header.container" htmlTag="div" htmlClass="container">
+                    <container name="bootstrap.header.row" htmlTag="div" htmlClass="row">
+                        <container name="left.col" htmlTag="div" htmlClass="left_col col-8 col-sm-3 clearfix">
+
+                        </container>
+                        <container name="right.col" htmlTag="div" htmlClass="right_col col-4 col-sm-9 clearfix">
+                            <block class="Magento\Framework\View\Element\Html\Link\Current" name="langw_block" template="OSS_Theme::langwich.phtml" after="top.links">
+                                <arguments>
+                                    <argument name="css_class" xsi:type="string">lengw_wrapper</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                    </container>
+                    <container name="header.bunner" htmlTag="div" htmlClass="bunner_wrapper">
+                        <block class="Magento\Framework\View\Element\Template" name="bunner.block" template="OSS_Theme::bunner.phtml">
+                            <arguments>
+                                <argument name="css_class" xsi:type="string">header_bunner</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                </container>
+                <referenceBlock class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+                    <arguments>
+                        <argument name="logo_file" xsi:type="string">images/logo.jpg</argument>
+                        <argument name="logo_alt" xsi:type="string">Logo</argument>
+                        <argument name="logo_img_width" xsi:type="number">189</argument>
+                        <argument name="logo_img_height" xsi:type="number">64</argument>
+                    </arguments>
+                </referenceBlock>
+            </referenceContainer>
         </referenceContainer>
+
+        <referenceContainer name="page.top">
+            <container name="nav.wrap" htmlTag="div" htmlClass="nav_wrap">
+            </container>
+        </referenceContainer>
+
+        <container name="page.main.content" htmlTag="main" htmlClass="main_content"/>
+        <referenceContainer name="main.content" remove="true"/>
+
+        <referenceContainer name="footer-container">
+            <referenceContainer name="footer" remove="true"/>
+                <container name="top.footer" htmlTag="div" htmlClass="top_footer">
+                    <block class="Magento\Framework\View\Element\Html\Link\Current" name="top.footer.block" template="OSS_Theme::top_footer.phtml"/>
+                </container>
+                <container name="middle.footer" htmlTag="div" htmlClass="middle_footer">
+                    <block class="Magento\Framework\View\Element\Html\Link\Current" name="middle.footer.block" template="OSS_Theme::middle_footer.phtml"/>
+                </container>
+                <container name="bottom.footer" htmlTag="div" htmlClass="bottom_footer">
+                    <block class="Magento\Framework\View\Element\Html\Link\Current" name="bottom.footer.block" template="OSS_Theme::bottom_footer.phtml"/>
+                </container>
+        </referenceContainer>
+
+        <move element="logo" destination="left.col" after="-"></move>
+        <move element="navigation.sections" destination="nav.wrap"></move>
+        <move element="top.search" destination="nav.wrap"></move>
+        <move element="minicart" destination="right.col" after="-"></move>
     </body>
 </page>
