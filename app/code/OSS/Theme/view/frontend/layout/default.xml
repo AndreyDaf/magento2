@@ -27,7 +27,9 @@
                                     <argument name="css_class" xsi:type="string">lengw_wrapper</argument>
                                 </arguments>
                             </block>
+                            <block class="Magento\Framework\View\Element\Template" name="right.header.links" template="OSS_Theme::right_coll_links.phtml" after="lengw_block"/>
                         </container>
+
                     </container>
                     <container name="header.bunner" htmlTag="div" htmlClass="bunner_wrapper">
                         <block class="Magento\Framework\View\Element\Template" name="bunner.block" template="OSS_Theme::bunner.phtml">
@@ -54,10 +56,11 @@
         </referenceContainer>
 
         <container name="page.main.content" htmlTag="main" htmlClass="main_content"/>
-        <referenceContainer name="main.content" remove="true"/>
+        <!--<referenceContainer name="main.content" remove="true"/>-->
 
         <referenceContainer name="footer-container">
             <referenceContainer name="footer" remove="true"/>
+            <referenceBlock  name="copyright" remove="true"/>
                 <container name="top.footer" htmlTag="div" htmlClass="top_footer">
                     <block class="Magento\Framework\View\Element\Html\Link\Current" name="top.footer.block" template="OSS_Theme::top_footer.phtml"/>
                 </container>

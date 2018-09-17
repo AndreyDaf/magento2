@@ -1,0 +1,50 @@
+.lib-font-face(
+  @family-name:'viparisIcons',
+  @font-path: '@{baseDir}fonts/viparis_iconspuck/viparis_iconspuck',
+  @font-weight: normal,
+  @font-style: normal
+);
+
+.lib-font-face(
+  @family-name:'viparis_PNB',
+  @font-path: '@{baseDir}fonts/proxima_nova/bold/ProximaNova-Bold',
+  @font-weight: normal,
+  @font-style: normal
+);
+
+.lib-font-face(
+  @family-name:'viparis_PNBlack',
+  @font-path: '@{baseDir}fonts/proxima_nova/black/ProximaNova-Black',
+  @font-weight: normal,
+  @font-style: normal
+);
+
+.lib-font-face(
+  @family-name:'viparis_PNR',
+  @font-path: '@{baseDir}fonts/proxima_nova/regular/ProximaNova-Regular',
+  @font-weight: normal,
+  @font-style: normal
+);
+
+.lib-font-face(
+  @family-name:'viparis_PhS',
+  @font-path: '@{baseDir}fonts/phosphate_solid/PhosphateSolid',
+  @font-weight: normal,
+  @font-style: normal
+);
+
+@viparisIcons: 'viparisIcons';
+@viparisPNB: 'viparis_PNB';
+@viparisPNBlack: 'viparis_PNBlack';
+@viparisPNR: 'viparis_PNR';
+@viparis_PhS: 'viparis_PhS';
+
+.icon {
+  font-family: @viparisIcons;
+}
+
+.sg-download:before { content: '\e800'; font-family: @viparisIcons;}
+.sg-favorite-heart-button:before { content: '\e801'; font-family: @viparisIcons;}
+.sg-male-user-shape:before { content: '\e802'; font-family: @viparisIcons;}
+.sg-search:before { content: '\e803'; font-family: @viparisIcons;}
+.sg-shopping-cart:before { content: '\e804'; font-family: @viparisIcons;}
