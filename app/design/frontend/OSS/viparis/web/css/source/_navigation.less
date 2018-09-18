@@ -25,37 +25,33 @@
   .nav-sections {
     .lib-css(background, @navigation__background);
   }
-
+  .left_col > .nav-toggle > span {
+    position: static;
+  }
   .nav-toggle {
-    .lib-icon-font(
-            @icon-menu,
-      @_icon-font-size: 28px,
-      @_icon-font-color: @header-icons-color,
-      @_icon-font-color-hover: @header-icons-color-hover
-    );
+    margin-right: 19px;
     .lib-icon-text-hide();
     cursor: pointer;
     display: block;
     font-size: 0;
-    left: 15px;
-    position: absolute;
-    top: 15px;
+    position: relative;
     z-index: 14;
-    //span, &:after, &:before {
-    //  cursor: pointer;
-    //  height: 2px;
-    //  width: 25px;
-    //  background:  @viparis_brown2;
-    //  position: absolute;
-    //  display: block;
-    //  content: '';
-    //}
-    //.nav-toggle span:before {
-    //  top: -10px;
-    //}
-    //.nav-toggle span:after {
-    //  bottom: -10px;
-    //}
+    span, span:after, span:before {
+      content: '';
+      height: 2px;
+      width: 25px;
+      background: @viparis_brown2;
+      display: block;
+      content: '';
+    }
+    span:before {
+      top: -7px;
+      position: absolute;
+    }
+    span:after {
+      bottom: -7px;
+      position: absolute;
+    }
   }
 }
 
@@ -288,43 +284,13 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-  //.nav-toggle {
-  //  display: block;
-  //}
-  //
-  //.nav-sections {
-  //  .lib-vendor-prefix-flex-shrink(0);
-  //  .lib-vendor-prefix-flex-basis(auto);
-  //  margin-bottom: @indent__m;
-  //}
-  //
-  //.nav-sections-item-title {
-  //  display: none;
-  //}
-  //
-  //.nav-sections-item-content {
-  //  display: block !important;
-  //}
-  //
-  //.nav-sections-item-content > * {
-  //  display: none;
-  //}
-  //
-  //.nav-sections-item-content {
-  //  > .navigation {
-  //    display: block;
-  //  }
-  //}
-  //
-  //.lib-main-navigation-desktop();
-  //
-  //.panel.header {
-  //  .links,
-  //  .switcher {
-  //    display: inline-block;
-  //  }
-  //}
+  .nav-toggle {
+    display: block;
+  }
+
 }
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
-
+  .nav-toggle {
+    display: none;
+  }
 }

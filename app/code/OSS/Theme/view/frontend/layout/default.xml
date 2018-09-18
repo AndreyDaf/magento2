@@ -55,8 +55,21 @@
             </container>
         </referenceContainer>
 
-        <container name="page.main.content" htmlTag="main" htmlClass="main_content"/>
-        <!--<referenceContainer name="main.content" remove="true"/>-->
+        <referenceContainer name="main">
+            <container name="bootstrap.container" htmlTag="div" htmlClass="container smaller_container">
+                <!--<block name='top.breadcrumbs' class="Magento\Theme\Block\Html\Breadcrumbs" template="Magento_Catalog::product/breadcrumbs.phtml"></block>-->
+
+                <block name='top.main.block' class="Magento\Framework\View\Element\Html\Link\Current" template="OSS_Theme::top_main_content.phtml"></block>
+                <container name="top.content.wrapper" htmlTag="div" htmlClass="content_wrapper row">
+                    <block name='top.main.filter' class="Magento\Framework\View\Element\Template" template="OSS_Theme::main_filter.phtml"></block>
+                    <block name='top.main.article' class="Magento\Framework\View\Element\Template" template="OSS_Theme::main_articles.phtml">
+                        <!--<arguments>-->
+                            <!--<argument name="css_class" xsi:type="string">articl_block</argument>-->
+                        <!--</arguments>-->
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
 
         <referenceContainer name="footer-container">
             <referenceContainer name="footer" remove="true"/>

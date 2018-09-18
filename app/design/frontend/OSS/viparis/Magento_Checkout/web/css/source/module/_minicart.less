@@ -104,8 +104,27 @@
       text-align: center;
     }
   }
-
+  .right_col {
+    .minicart-wrapper {
+      &:before {
+        content: '10';
+        position: absolute;
+        top: 17px;
+        right: 17px;
+        font-size: 11px;
+        color: @viparis_wite;
+      }
+    }
+  }
   .minicart-wrapper {
+    &:before {
+      content: '10';
+      position: absolute;
+      top: 17px;
+      left: 17px;
+      font-size: 11px;
+      color: @viparis_wite;
+    }
     .lib-dropdown(
       @_toggle-selector: ~'.action.showcart',
       @_options-selector: ~'.block-minicart',
@@ -394,12 +413,21 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-  .minicart-wrapper .block-minicart {
-    width: 290px;
-  }
-  .minicart-wrapper {
-    .action {
-      padding: 21px 19.5px;
+  .right_col {
+    .minicart-wrapper {
+      margin-left: 0;
+      &:before {
+        top: 12px;
+        left: 30px;
+      }
+      .action {
+        padding: 21px 19.5px;
+      }
+
+      .block-minicart {
+        right: -15px;
+        width: 290px;
+      }
     }
   }
 }
@@ -414,15 +442,21 @@
 
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-  .minicart-wrapper {
-    margin-left: 0;
-    .action {
-      padding: 21px 19.5px;
-    }
+  .right_col {
+    .minicart-wrapper {
+      margin-left: 0;
+      &:before {
+        top: 12px;
+        left: 30px;
+      }
+      .action {
+        padding: 21px 19.5px;
+      }
 
-    .block-minicart {
-      right: -15px;
-      width: 390px;
+      .block-minicart {
+        right: -15px;
+        width: 390px;
+      }
     }
   }
   .minilist .action.delete,
@@ -434,10 +468,16 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
-  .minicart-wrapper {
-    margin-left: 13px;
-    .action {
-      padding: 32.5px 42px;
+  .right_col {
+    .minicart-wrapper {
+      margin-left: 13px;
+      &:before {
+        top: 17px;
+        left: 76px;
+      }
+      .action {
+        padding: 32.5px 42px;
+      }
     }
   }
 }
