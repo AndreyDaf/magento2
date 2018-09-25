@@ -52,6 +52,8 @@
 
         <referenceContainer name="page.top">
             <container name="nav.wrap" htmlTag="div" htmlClass="nav_wrap">
+                <container name="nav.wrap.container" htmlTag="div" htmlClass="container">
+                </container>
             </container>
         </referenceContainer>
 
@@ -86,8 +88,8 @@
         </referenceContainer>
 
         <move element="logo" destination="left.col" after="-"></move>
-        <move element="navigation.sections" destination="nav.wrap"></move>
-        <move element="top.search" destination="nav.wrap"></move>
+        <move element="navigation.sections" destination="nav.wrap.container"></move>
+        <move element="top.search" destination="nav.wrap.container"></move>
         <move element="minicart" destination="right.col" after="-"></move>
     </body>
 </page>

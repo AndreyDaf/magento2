@@ -18,40 +18,108 @@
   .panel.header {
     .links,
     .switcher {
-      display: block;
+      display: none;
     }
   }
 
   .nav-sections {
     .lib-css(background, @navigation__background);
+     .navigation {
+       #ui-id-2 {
+        padding: 4px 0 4px 3%;
+         display: flex;
+         .level0.level-top {
+          font-family: @viparisPNB;
+          text-transform: uppercase;
+           position: static;
+           .lib-css(border-right, @navigation-level0-item__border);
+           &:last-child {
+             .lib-css(border-right, none);
+           }
+           .level-top.ui-corner-all {
+             display: flex !important;
+             align-items: center;
+             min-height: 63px;
+             position: relative;
+           }
+           .level0.submenu {
+             padding: 24px 0 8px 0;
+             top: 100% !important;
+             left: 0 !important;
+             display: flex;
+             flex-wrap: wrap;
+             .level1.ui-menu-item {
+               box-sizing: border-box;
+               padding: 0 10px;
+               width: 25%;
+               border-left: 1px solid @viparis_grey-e6;
+               &:first-child {
+                 border-left: none;
+               }
+               .ui-corner-all.active {
+                 display: inline-block;
+                 border: none;
+               }
+               > .level1.submenu {
+                 display: block !important;
+                 min-width: 100%;
+                 border: none;
+                 box-shadow: none;
+                 position: static;
+                 .level2.ui-menu-item {
+                   margin-bottom: 10px;
+                   .ui-corner-all {
+                     padding: 0;
+                     font-family: @viparisPNR;
+                     color: @viparis_blue;
+                     text-transform: none;
+                     display: inline-block;
+                     border: none;
+                     &:hover {
+                       box-shadow: 0 1px 0 0 #eb2645;
+                     }
+                   }
+                 }
+               }
+             }
+
+           }
+        }
+         .level0.active,
+         .level0.has-active {
+            box-shadow: 0 4px 0 0 #eb2645;
+            .level-top.ui-corner-all {
+              &:after {
+                content: '\e808';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                right: 50%;
+                transform: translate(50%, 0);
+                font-family: @viparisIcons;
+                color: @viparis_red;
+              }
+            }
+         }
+      }
+    }
   }
-  .left_col > .nav-toggle > span {
-    position: static;
-  }
+
   .nav-toggle {
-    margin-right: 19px;
+    .lib-icon-font(
+            @icon-menu,
+      @_icon-font-size: 28px,
+      @_icon-font-color: @header-icons-color,
+      @_icon-font-color-hover: @header-icons-color-hover
+    );
     .lib-icon-text-hide();
     cursor: pointer;
     display: block;
     font-size: 0;
-    position: relative;
+    left: 15px;
+    position: absolute;
+    top: 15px;
     z-index: 14;
-    span, span:after, span:before {
-      content: '';
-      height: 2px;
-      width: 25px;
-      background: @viparis_brown2;
-      display: block;
-      content: '';
-    }
-    span:before {
-      top: -7px;
-      position: absolute;
-    }
-    span:after {
-      bottom: -7px;
-      position: absolute;
-    }
   }
 }
 
@@ -285,12 +353,39 @@
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
   .nav-toggle {
-    display: block;
+    display: none;
   }
 
-}
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
-  .nav-toggle {
+  .nav-sections {
+    .lib-vendor-prefix-flex-shrink(0);
+    .lib-vendor-prefix-flex-basis(auto);
+    margin-bottom: @indent__m;
+  }
+
+  .nav-sections-item-title {
     display: none;
+  }
+
+  .nav-sections-item-content {
+    display: block !important;
+  }
+
+  .nav-sections-item-content > * {
+    display: none;
+  }
+
+  .nav-sections-item-content {
+    > .navigation {
+      display: block;
+    }
+  }
+
+  .lib-main-navigation-desktop();
+
+  .panel.header {
+    .links,
+    .switcher {
+      display: inline-block;
+    }
   }
 }

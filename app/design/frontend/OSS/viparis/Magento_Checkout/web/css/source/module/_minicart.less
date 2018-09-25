@@ -1,7 +1,7 @@
 // /**
 //  * Copyright © Magento, Inc. All rights reserved.
 //  * See COPYING.txt for license details.
-//  */!!!!!!!!!!!!!!!!!!!
+//  */
 
 //
 //  Variables
@@ -104,27 +104,10 @@
       text-align: center;
     }
   }
-  .right_col {
-    .minicart-wrapper {
-      &:before {
-        content: '10';
-        position: absolute;
-        top: 17px;
-        right: 17px;
-        font-size: 11px;
-        color: @viparis_wite;
-      }
-    }
-  }
+
   .minicart-wrapper {
-    &:before {
-      content: '10';
-      position: absolute;
-      top: 17px;
-      left: 17px;
-      font-size: 11px;
-      color: @viparis_wite;
-    }
+    position: relative;
+    background-color: @viparis_red;
     .lib-dropdown(
       @_toggle-selector: ~'.action.showcart',
       @_options-selector: ~'.block-minicart',
@@ -133,16 +116,17 @@
       @_dropdown-list-pointer-position: right,
       @_dropdown-list-pointer-position-left-right: 26px,
       @_dropdown-list-z-index: 101,
-      @_dropdown-toggle-icon-content: @sg_shopping-cart,
-      @_dropdown-toggle-active-icon-content: @sg_shopping-cart,
+      @_dropdown-toggle-icon-content: @viparis-shoping-cart,
+      @_dropdown-toggle-active-icon-content: @viparis-shoping-cart,
       @_dropdown-list-item-padding: false,
       @_dropdown-list-item-hover: false,
       @_icon-font-position: before,
-      @_icon-font-size: 20px,
-      @_icon-font-line-height: 28px,
+      @_icon-font: @viparisIcons,
+      @_icon-font-size: 18px,
+      @_icon-font-line-height: 18px,
       @_icon-font-color: @viparis_wite,
-      @_icon-font-color-hover: @minicart-icons-color-hover,
-      @_icon-font-color-active: @minicart-icons-color
+      @_icon-font-color-hover: @viparis_blue2,
+      @_icon-font-color-active: @viparis_blue2
     );
     float: right;
 
@@ -171,7 +155,7 @@
     }
 
     .action {
-      background-color: @viparis_red;
+      padding: 32.5px 42px;
       &.close {
         height: 40px;
         position: absolute;
@@ -196,18 +180,12 @@
         }
 
         .counter.qty {
-          .lib-css(background, @active__color);
-          .lib-css(color, @page__background-color);
-          .lib-css(height, @minicart-qty__height);
-          .lib-css(line-height, @minicart-qty__height);
-          border-radius: 2px;
           display: inline-block;
-          margin: 3px 0 0;
-          min-width: 18px;
-          overflow: hidden;
-          padding: 0 3px;
-          text-align: center;
-          white-space: normal;
+          text-shadow: none;
+          position: absolute;
+          font-size: 11px;
+          right: 17px;
+          top: 17px;
 
           &.empty {
             display: none;
@@ -399,7 +377,7 @@
         );
       }
 
-      &.delete  {
+      &.delete {
         .lib-icon-font-symbol(
           @_icon-font-content: @icon-trash
         );
@@ -412,51 +390,29 @@
 //  Mobile
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-  .right_col {
-    .minicart-wrapper {
-      margin-left: 0;
-      &:before {
-        top: 12px;
-        left: 30px;
-      }
-      .action {
-        padding: 21px 19.5px;
-      }
-
-      .block-minicart {
-        right: -15px;
-        width: 290px;
-      }
-    }
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+  .minicart-wrapper .block-minicart {
+    width: 290px;
   }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
-
+  .minicart-wrapper {
+    margin-top: @indent__s;
+  }
 }
 
 //
 //  Desktop
 //  _____________________________________________
 
-
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-  .right_col {
-    .minicart-wrapper {
-      margin-left: 0;
-      &:before {
-        top: 12px;
-        left: 30px;
-      }
-      .action {
-        padding: 21px 19.5px;
-      }
+  .minicart-wrapper {
+    margin-left: 13px;
 
-      .block-minicart {
-        right: -15px;
-        width: 390px;
-      }
+    .block-minicart {
+      right: -15px;
+      width: 390px;
     }
   }
   .minilist .action.delete,
@@ -466,20 +422,3 @@
     );
   }
 }
-
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
-  .right_col {
-    .minicart-wrapper {
-      margin-left: 13px;
-      &:before {
-        top: 17px;
-        left: 76px;
-      }
-      .action {
-        padding: 32.5px 42px;
-      }
-    }
-  }
-}
-
-
