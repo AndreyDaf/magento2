@@ -52,7 +52,53 @@
 
 @media only screen and (max-width: 991px) {
   .navigation {
-    padding: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .level0 {
+      a,
+      a:visited,
+      .alink:visited {
+        color: @viparis_blue;
+      }
+      .level-top {
+        font-family: @viparisPNR;
+        margin-right: 50px;
+      }
+    }
+
+    .level0 {
+      .submenu {
+        display: flex;
+        flex-wrap: wrap;
+        .all-category {
+          font-size: 16px;
+          width: 100%;
+          a {
+            padding: 10px;
+          }
+        }
+        .level1 {
+          padding-left: 15px;
+          a {
+            padding: 10px;
+            color: @viparis_red;
+          }
+        }
+      }
+    }
+
+    .level1 {
+      .submenu {
+        .level2 {
+          a {
+            color: @viparis_blue;
+          }
+        }
+      }
+    }
 
     .parent {
       .level-top {
@@ -64,9 +110,10 @@
           @_icon-font-display: block
         );
 
+
         &:after {
           position: absolute;
-          right: 7px;
+          right: -50px;
           top: -8px;
         }
 
@@ -278,6 +325,7 @@
   }
 
   .lib-main-navigation();
+
 }
 
 //
