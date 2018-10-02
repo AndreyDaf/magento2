@@ -1,18 +1,35 @@
-<?xml version="1.0"?>
-<!--
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="content">
-            <referenceBlock class="Magento\Catalog\Block\Category\View" name="category.products" template="Magento_Catalog::category/products.phtml">
-                <referenceBlock class="Magento\Catalog\Block\Product\ListProduct" name="category.products.list" as="product_list" template="Magento_Catalog::product/list.phtml">
-                    <referenceContainer name="category.product.list.additional" remove="true" />
-                </referenceBlock>
-            </referenceBlock>
+        <referenceContainer name="main.content">
+            <container name='main.content.container' htmlTag="div" htmlClass="container smaller_container">
+                <block class="Magento\Framework\View\Element\Template" name="main.top.dates" template="OSS_Theme::main_dates.phtml" after="breadcrumbs">
+
+                </block>
+
+                <referenceContainer name="columns">
+                    <container name="sidebar.content.wrapper" htmlTag="div" htmlClass="sidebar_wrapper" before="main">
+                        <referenceContainer name="div.sidebar.additional">
+                            <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+                            <referenceBlock name="wishlist_sidebar" remove="true"/>
+                            <container name="div.sidebar.information" htmlTag="div" htmlClass="sidebar__info_wrap" after="div.sidebar.main">
+                            <block class="Magento\Framework\View\Element\Html\Link\Current" name="sidebar.information" template="OSS_Theme::sidebar_information.phtml">
+                            </block>
+                            </container>
+                        </referenceContainer>
+                    </container>
+
+                    <referenceContainer name="main">
+                        <block class="Magento\Framework\View\Element\Template" name="quotation.block" template="OSS_Theme::main_quotation.phtml" after="-">
+
+                        </block>
+                    </referenceContainer>
+
+                </referenceContainer>
+
+            </container>
         </referenceContainer>
+
+        <move element="div.sidebar.additional" destination="sidebar.content.wrapper"  after="-"/>
+        <move element="div.sidebar.main" destination="sidebar.content.wrapper"  before="-"/>
     </body>
 </page>

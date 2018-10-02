@@ -9,7 +9,7 @@
 
 @toolbar-mode-icon-font-size: 16px;
 @toolbar-background: transparent;
-@toolbar-element-background: @color-gray94;
+@toolbar-element-background: @viparis_wite;
 @toolbar-element__color: @color-gray37;
 @pager-action__background: @toolbar-element-background;
 @pager-action__hover__background: darken(@toolbar-element-background, 7%);
@@ -22,7 +22,6 @@
 & when (@media-common = true) {
   .page-products {
     .columns {
-      padding-top: 60px;
       position: relative;
       z-index: 1;
     }
@@ -30,13 +29,16 @@
 
   .toolbar {
     &:extend(.abs-add-clearfix all);
-    margin-bottom: @indent__l;
+    padding: 11px 0 7px 0;
     text-align: center;
 
     select {
       .lib-css(background-color, @toolbar-element-background);
-      .lib-css(box-shadow, @button__shadow);
-      border-radius: 3px;
+      border: none;
+      padding: 0 15px 0 0;
+      background: #fff url(../images/select_icon.png) no-repeat 100% 50%;
+      margin: 0;
+      color: @viparis_blue;
     }
 
     &-amount {
@@ -44,9 +46,13 @@
       line-height: @toolbar-mode-icon-font-size + 2;
       margin: 0;
       padding: 7px 0;
+      text-transform: uppercase;
       text-align: left;
       top: 0;
       vertical-align: middle;
+      .toolbar-number {
+        color: @viparis_red;
+      }
 
       .products.wrapper ~ .toolbar & {
         display: none;
@@ -56,6 +62,12 @@
     .page-with-filter & {
       &-amount {
         position: static;
+      }
+    }
+
+    .sorter {
+      .page-products & {
+
       }
     }
 
@@ -76,11 +88,18 @@
     }
   }
 
+  .limiter {
+    float: right;
+    .products.wrapper ~ .toolbar & {
+      display: none;
+    }
+  }
+
   .sorter {
     float: right;
-
+    margin-right: 30px;
     .page-products & {
-      position: absolute;
+      position: static;
       right: @indent__s;
       top: 0;
       z-index: 1;
@@ -111,10 +130,66 @@
   }
 
   .modes {
-    display: none;
+    float: right;
+    display: inline-block;
+
+    .products.wrapper ~ .toolbar & {
+      display: none;
+    }
+
+    &-label {
+      display: none;
+    }
+  }
+
+  .modes-mode {
+    .lib-css(background-color, @toolbar-element-background);
+    .lib-css(color, @toolbar-element__color);
+    border: 1px solid @viparis_grey-e6;
+    float: left;
+    font-weight: @font-weight__regular;
+    line-height: 1;
+    padding: 7px 10px;
+    text-align: center;
+
+    .modes-label + & {
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    &:hover {
+      .lib-css(color, @toolbar-element__color);
+      background: darken(@toolbar-element-background, 2%);
+    }
+
+    &:last-child {
+      border-radius: 50%;
+    }
+
+    &.active {
+      background: @viparis_red4;
+    }
+
+    .lib-icon-font(
+      @_icon-font-content: @viparis-thumb,
+      @_icon-font: @viparisIcons,
+            @icon-grid,
+      @_icon-font-size: @toolbar-mode-icon-font-size,
+      @_icon-font-text-hide: true,
+      @_icon-font-color: @text__color__muted,
+      @_icon-font-color-hover: @text__color__muted
+    );
+  }
+
+  .mode-list {
+    &:before {
+      content: @viparis-list;
+      font-family: @viparisIcons;
+    }
   }
 
   .limiter {
+    margin-right: 40px;
     &-options {
       margin: 0 5px 0 7px;
       width: auto;
@@ -125,7 +200,7 @@
     }
 
     .page-products .toolbar & {
-      display: none;
+      display: block;
     }
 
     .control {
@@ -134,20 +209,55 @@
   }
 }
 
-//
-//  Desktop
-//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+  .toolbar {
+    select {
+      font-size: @viparis_f13;
+    }
+  }
+
+  .modes {
+    display: none;
+  }
+}
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
   .toolbar-products {
     margin-bottom: 0;
+  }
+
+  .limiter {
+    margin-right: 13px;
+  }
+
+  .sorter {
+    margin-right: 13px;
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .limiter {
+    display: none;
+  }
+}
+//
+//  Desktop
+//  _____________________________________________
+
+@media only screen and (max-width: 992px) {
+  .sorter {
+    float: right;
+    margin-right: 24px;
+  }
+
+  .limiter {
+    margin-right: 34px;
   }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
   .page-products {
     .columns {
-      padding-top: 25px;
       position: relative;
       z-index: 1;
     }
@@ -161,82 +271,14 @@
 
   .toolbar {
     .products.wrapper ~ & .pages {
-      float: left;
-      margin-bottom: 0;
-    }
-  }
-
-  .modes {
-    display: inline-block;
-    float: left;
-    margin-right: @indent__base;
-
-    .products.wrapper ~ .toolbar & {
-      display: none;
-    }
-  }
-
-  .modes-label {
-    &:extend(.abs-visually-hidden-desktop all);
-  }
-
-  .modes-mode {
-    .lib-css(background-color, @toolbar-element-background);
-    .lib-css(box-shadow, @button__shadow);
-    .lib-css(color, @toolbar-element__color);
-    border: 1px solid @border-color__base;
-    border-right: 0;
-    float: left;
-    font-weight: @font-weight__regular;
-    line-height: 1;
-    padding: 7px 10px;
-    text-align: center;
-
-    .modes-label + & {
-      border-radius: 3px 0 0 3px;
-    }
-
-    &:hover {
-      .lib-css(color, @toolbar-element__color);
-      background: darken(@toolbar-element-background, 2%);
-    }
-
-    &:last-child {
-      border-radius: 0 3px 3px 0;
-      border-right: 1px solid @border-color__base;
-    }
-
-    &.active {
-      .lib-css(box-shadow, @button__shadow-active);
-      background: darken(@toolbar-element-background, 7%);
-      color: @color-gray62;
-    }
-
-    .lib-icon-font(
-            @icon-grid,
-      @_icon-font-size: @toolbar-mode-icon-font-size,
-      @_icon-font-text-hide: true,
-      @_icon-font-color: @text__color__muted,
-      @_icon-font-color-hover: @text__color__muted
-    );
-  }
-
-  .sorter {
-    .page-products & {
-      position: static;
-    }
-  }
-
-  .mode-list {
-    &:before {
-      content: @icon-list;
+      margin: 0 auto;
     }
   }
 
   .limiter {
     float: right;
     .products.wrapper ~ .toolbar & {
-      display: block;
+      display: none;
     }
   }
 }

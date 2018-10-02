@@ -200,7 +200,75 @@
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+@media only screen and (max-width: 992px) {
+    .block-search {
+        display: none;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .block-search {
+        padding-left: 0px;
+        position: absolute;
+        top: 50%;
+        right: 25px;
+        transform: translate(0, -50%);
+        width: 260px;
+        z-index: 4;
+
+        .label {
+            &:before {
+                display: none;
+            }
+        }
+
+        .control {
+            border-top: 0;
+            margin: 0;
+        }
+
+        input {
+            .lib-input-placeholder(@form-element-input-placeholder__color);
+            margin: 0;
+            padding: 0 15px 0 52px;
+            font-size: 14px;
+            font-family: @viparisPNB;
+            height: 52px;
+            border: 0;
+            position: static;
+
+        }
+
+        .action.search {
+            display: inline-block;
+            left: 17px;
+            top: 50%;
+            transform: translate(0, -50%);
+            .lib-button-icon(
+                @_icon-font-content: @icon-search,
+                @_icon-font-size: 24px,
+                @_icon-font-text-hide: true,
+                @_icon-font-color: @viparis_red
+            );
+            .lib-button-reset();
+            padding: 0;
+            position: absolute;
+            z-index: 1;
+
+            &:focus {
+                &:before {
+                    .lib-css(color, @color-gray20);
+                }
+            }
+        }
+    }
+
+    .search-autocomplete {
+        margin-top: 0;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
     .block-search {
         padding-left: 0px;
         position: absolute;
@@ -223,6 +291,8 @@
             .lib-input-placeholder(@form-element-input-placeholder__color);
             margin: 0;
             padding: 0 15px 0 52px;
+            font-size: 14px;
+            font-family: @viparisPNB;
             height: 52px;
             border: 0;
             position: static;
@@ -235,10 +305,10 @@
             top: 50%;
             transform: translate(0, -50%);
             .lib-button-icon(
-            @_icon-font-content: @icon-search,
-            @_icon-font-size: 24px,
-            @_icon-font-text-hide: true,
-            @_icon-font-color: @viparis_red
+                @_icon-font-content: @icon-search,
+                @_icon-font-size: 24px,
+                @_icon-font-text-hide: true,
+                @_icon-font-color: @viparis_red
             );
             .lib-button-reset();
             padding: 0;

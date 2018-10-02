@@ -1,3 +1,10 @@
+@screen__xxs: 320px;
+@screen__xs: 480px;
+@screen__s: 640px;
+@screen__m: 768px;
+@screen__l: 992px;
+@screen__xl: 1200px;
+
 @layout__max-width: 1380px;
 @layout-indent__width: 0;
 @layout__width-xs-indent: 0;
@@ -16,6 +23,20 @@
 
 //  Focus
 @focus__box-shadow: none;
+//
+//  Navigation
+//  _____________________________________________
+
+@navigation-level0-item__color: @viparis_blue;
+@navigation-level0-item__border: '';
+
+@navigation-level0-item__font-size: 0.9rem;
+@navigation-level0-item__margin: 0;
+@navigation-level0-item__padding: 8px @indent__xl 8px 15px;
+@navigation-level0-item__text-transform: '';
+@navigation-level0-item__active__border-color: @viparis_red;
+
+
 
 //
 //  Navigation variables
@@ -60,3 +81,55 @@
 @submenu-desktop-item__padding: 0 0 15px 0;
 @submenu-desktop-item__hover__background: '';
 @submenu-desktop__box-shadow: 0 3px 18px -5px rgba(0, 0, 0, .2);
+
+//
+//  Layout variables
+//
+
+//  Variables for layout columns
+@layout-column__left-width: 3;
+
+//colors
+@text__color__muted: @viparis_blue;
+@text__color__muted: @viparis_blue;
+
+
+
+
+//
+//  Pager variables
+//  _____________________________________________
+
+@pager__font-size: @viparis_f16;
+@pager__line-height: 34px;
+
+
+@pager-item__margin: 0 11px;
+@pager-item__padding: 0;
+
+//  Pager current page
+@pager-current__color: @viparis_red;
+
+//  Pager link default
+@pager__color: @viparis_blue;
+
+//  Pager link visited
+@pager__visited__color: @viparis_blue;
+
+//  Pager link hover
+@pager__hover__color: @viparis_red2;
+
+//  Pager link.action
+@pager-icon__previous-content: @viparis-left;
+@pager-icon__next-content: @viparis-right;
+@pager-icon__font: @viparisIcons;
+@pager-icon__font-size: 16px;
+@pager-icon__font-line-height: 34px;
+@pager-icon__font-margin: 0;
+
+//  Pager link.action default
+@pager-action__color: @viparis_grey6;
+@pager-action__border: 1px solid @viparis_grey-e6;
+
+//  Pager link.action hover
+@pager-action__hover__color: @viparis_red;

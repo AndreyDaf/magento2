@@ -1,0 +1,60 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .pages {
+        .lib-pager();
+
+        .action {
+            border-radius: 50%;
+            padding: 0 9px;
+            &:hover {
+                border: 1px solid @viparis_red;
+            }
+
+            &.previous {
+                margin-right: 32px;
+            }
+
+            &.next {
+                margin-left: 32px;
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .pages {
+        & &-items {
+            display: block;
+            padding: 2px 40px 0;
+            position: relative;
+            white-space: normal;
+            z-index: 1;
+        }
+
+        &-item-previous {
+            left: 0;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+        }
+
+        &-item-next {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+    }
+}
