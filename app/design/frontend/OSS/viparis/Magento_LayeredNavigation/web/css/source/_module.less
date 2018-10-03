@@ -158,6 +158,11 @@
                 .item {
                     border-bottom: 1px solid @viparis_grey-e6;
                     position: relative;
+
+                    &:hover {
+                        background-color: @viparis_red4;
+                        text-decoration: none;
+                    }
                 }
 
                 a {
@@ -166,14 +171,6 @@
                     display: inline-block;
                     padding: 16px 0 16px 20px;
 
-                    &:hover {
-                        background-color: @viparis_red4;
-                        text-decoration: none;
-
-                        & + .count {
-                            background-color: @color-gray91;
-                        }
-                    }
                 }
                 a:visited {
                     color: @filter-link;
