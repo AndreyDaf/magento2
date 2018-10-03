@@ -78,13 +78,12 @@
         margin-top: 0;
 
         > .secondary {
-          border-right: 1px solid #bbb;
           text-align: center;
           text-transform: uppercase;
-          width: 116.4%;
-          background-color: @viparis_wite;
+          display: block;
+          background-color: #ffffff;
           padding: 20px 0 20px 0;
-          margin: 0px -20px;
+          margin: 0px -20px 0 -20px;
           .action {
             max-width: 178px;
             width: 100%;
@@ -92,6 +91,9 @@
             display: inline-block;
             background: @viparis_blue;
             font-size: @viparis_f14;
+            &:hover {
+              color: @viparis_red;
+            }
           }
           .minicart-widgets {
             margin: 0;
@@ -153,7 +155,12 @@
 
     .block-minicart {
       padding: 25px 20px 0 20px;
-
+      &:before {
+        display: none;
+      }
+      &:after {
+        display: none;
+      }
       .block-title {
         display: none;
       }

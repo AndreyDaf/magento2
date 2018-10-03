@@ -406,28 +406,30 @@
               padding: 0 10px;
               width: 25%;
               border-left: 1px solid @viparis_grey-e6;
-              &:first-child {
-                border-left: none;
-              }
               .ui-corner-all.active {
                 display: inline-block;
-                border: none;
+              }
+              .ui-corner-all {
+                margin-bottom: 15px;
               }
               > .level1.submenu {
                 display: block !important;
+                top: 0 !important;
+                left: 0 !important;
                 min-width: 100%;
+
                 border: none;
                 box-shadow: none;
                 position: static;
                 .level2.ui-menu-item {
-                  margin-bottom: 10px;
+                  margin-bottom: 2px;
                   .ui-corner-all {
-                    padding: 0;
+                    padding: 2px;
                     font-family: @viparisPNR;
                     color: @viparis_blue;
                     text-transform: none;
                     display: inline-block;
-                    border: none;
+                    margin-bottom: 0;
                     &:hover {
                       box-shadow: 0 1px 0 0 #eb2645;
                     }
